@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            body
+            {
+                margin:0;
+                background-color: white;
+            }
+            .events, .unread
+            {
+                background-color: white;
+                border: 2px solid grey;
+                width:40%;
+                height: 100%;
+                margin: 2px;
+            }
 
+            .evnt, .unread_msg{
+                width: 90%;
+                height: 10vh;
+                border: 1px solid red;
+                margin: 2vh 2vw;
+                display: inline-block;
+            }
+            .unread_notify
+            {
+                background-color: blue;
+                display: block;
+                width: 100%;
+            }
+            .unread_notify p
+            {
+                color: white;
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <div class="events">
+            <h1 style="text-align: center;">Today Events</h1>
+            <div class="evnt">
 
+            </div>
         </div>
 
         <div class="unread">
+            <h1 style="text-align: center;">Unread Mails</h1>
+            <div class="unread_notify">
+                <p>You have 12 unread messages</p>
+            </div>
+            <div class="unread_msg">
+
+            </div>
 
         </div>
         
