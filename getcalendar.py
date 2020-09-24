@@ -12,15 +12,16 @@ def get_servicecalendar():
 
 def get_calendarlist(servicecal):
     calendar_list = servicecal.calendarList().list().execute()
-    MyDayPlan =  calendar_list['items'][0]
     MyAcademics = calendar_list['items'][2]
-    Calendar_id =[MyDayPlan['id'],MyAcademics['id']]
+    Calendar_id =MyAcademics['id']
     return Calendar_id
 
 def get_todayevents(servicecal,NOW,NOWMAX,Cid):
     MyAcademicEvents = servicecal.events().list(calendarId=Cid,timeMin=NOW,timeMax=NOWMAX,singleEvents=True,orderBy='startTime').execute()
+    today_events={}
     for i in MyAcademicEvents['items']:
         Eventname=i['summary']
         EventTimes=i['start']['dateTime'][11:19]
         Eventtimee=i['end']['dateTime'][11:19]
-        print(Eventname ,"[",EventTimes,"->",Eventtimee,"]")
+        today_events[Eventname]=(EventTimes,Eventtimee)
+    return today_events

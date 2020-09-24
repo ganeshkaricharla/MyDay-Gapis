@@ -16,10 +16,10 @@ def get_unreadmail(servicemail):
     messages = results.get('messages', [])
 
     if not messages:
-        print('No New Emails found.')
+        return "NoEvents"
     else:
         count_unread=len(messages)
-        print("You have",count_unread,"New Messages")
+        li=[]
         for message in messages:
             msg = servicemail.users().messages().get(userId='me',id=message['id']).execute()
             email_data=msg['payload']['headers']
@@ -27,7 +27,11 @@ def get_unreadmail(servicemail):
                 typerecv=values['name']
                 if typerecv == "From":
                     unreadmsg_sender=values['value']
-                    print("You have a message from",unreadmsg_sender)
+                    li.append(unreadmsg_sender)
+    return list([count_unread,li])
+
+
+
 
 
 
