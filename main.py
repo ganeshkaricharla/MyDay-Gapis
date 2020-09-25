@@ -4,7 +4,7 @@ import getmail
 
 
 NOW = now = datetime.datetime.utcnow().isoformat() + 'Z'
-NOW = "2020-09-25T01:00:00.00303Z"  #tospecify certaindate for check
+#NOW = "2020-09-25T01:00:00.00303Z"  #tospecify certaindate for check
 NOWMAX = NOW[0:11]+"23:59:59.000000Z"
 
 servicecal=getcalendar.get_servicecalendar()
