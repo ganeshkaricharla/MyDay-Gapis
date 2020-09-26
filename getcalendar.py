@@ -19,9 +19,11 @@ def get_calendarlist(servicecal):
 def get_todayevents(servicecal,NOW,NOWMAX,Cid):
     MyAcademicEvents = servicecal.events().list(calendarId=Cid,timeMin=NOW,timeMax=NOWMAX,singleEvents=True,orderBy='startTime').execute()
     today_events={}
+    count_events=0
     for i in MyAcademicEvents['items']:
         Eventname=i['summary']
         EventTimes=i['start']['dateTime'][11:19]
         Eventtimee=i['end']['dateTime'][11:19]
         today_events[Eventname]=(EventTimes,Eventtimee)
-    return today_events
+        count_events+=1
+    return list([count_events,today_events])
