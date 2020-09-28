@@ -12,7 +12,7 @@ def get_servicecalendar():
 
 def get_calendarlist(servicecal):
     calendar_list = servicecal.calendarList().list().execute()
-    MyAcademics = calendar_list['items'][2]
+    MyAcademics = calendar_list['items'][3]
     Calendar_id =MyAcademics['id']
     return Calendar_id
 
